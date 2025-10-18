@@ -2,6 +2,7 @@ package com.murilloantoniobento.todolist.task;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +36,17 @@ public class TaskController {
     if(taskModel.getStartAt().isAfter(taskModel.getEndAt())) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A data de início deve ser menor do que a data de término.");
     }
-
+    
     var task = this.taskRepository.save(taskModel);
     return ResponseEntity.status(HttpStatus.OK).body(task);
     
+  }
+  
+  @GetMapping("/")
+  public List<TaskModel> list(HttpServletRequest request) {
+    var idUser = request.getAttribute("idUser");
+    var tasks = this.taskRepository.findByIdUser((UUID) idUser);
+    return tasks;
   }
 
 }
