@@ -14,7 +14,8 @@
 📋 Criar, listar e atualizar tarefas <br/>
 🔒 Autenticação básica com username e senha <br/>
 🛠️ Hash de senhas com BCrypt <br/>
-🗓️ Validação de datas de início e término das tarefas
+🗓️ Validação de datas de início e término das tarefas <br/>
+📚 Desenvolvido como parte do Minicurso de Java da Rocketseat
 
 ## Contatos
 
